@@ -7,10 +7,10 @@ import {
   Welcome,
   useXAgent,
   useXChat,
-} from "@ant-design/x";
-import { createStyles } from "antd-style";
-import React, { useEffect } from "react";
-import { Typography } from 'antd';
+} from '@ant-design/x'
+import { createStyles } from 'antd-style'
+import React, { useEffect } from 'react'
+import { Typography } from 'antd'
 import {
   CloudUploadOutlined,
   CommentOutlined,
@@ -22,16 +22,16 @@ import {
   ReadOutlined,
   ShareAltOutlined,
   SmileOutlined,
-  UserOutlined
-} from "@ant-design/icons";
-import { Badge, Button, Space } from "antd";
-import markdownit from 'markdown-it';
+  UserOutlined,
+} from '@ant-design/icons'
+import { Badge, Button, Space } from 'antd'
+import markdownit from 'markdown-it'
 const md = markdownit({
   html: true,
   breaks: true,
-});
+})
 
-const renderMarkdown = (content) => (
+const renderMarkdown = content => (
   <Typography>
     {/* biome-ignore lint/security/noDangerouslySetInnerHtml: used in demo */}
     <div
@@ -40,20 +40,20 @@ const renderMarkdown = (content) => (
       }}
     />
   </Typography>
-);
+)
 
 const renderTitle = (icon, title) => (
   <Space align="start">
     {icon}
     <span>{title}</span>
   </Space>
-);
+)
 const defaultConversationsItems = [
   {
-    key: "0",
-    label: "What is Ant Design X?",
+    key: '0',
+    label: 'What is Ant Design X?',
   },
-];
+]
 const useStyle = createStyles(({ token, css }) => {
   return {
     layout: css`
@@ -129,92 +129,92 @@ const useStyle = createStyles(({ token, css }) => {
       width: calc(100% - 24px);
       margin: 0 12px 24px 12px;
     `,
-  };
-});
+  }
+})
 const placeholderPromptsItems = [
   {
-    key: "1",
+    key: '1',
     label: renderTitle(
       <FireOutlined
         style={{
-          color: "#FF4D4F",
+          color: '#FF4D4F',
         }}
       />,
-      "Hot Topics"
+      'Hot Topics'
     ),
-    description: "What are you interested in?",
+    description: 'What are you interested in?',
     children: [
       {
-        key: "1-1",
+        key: '1-1',
         description: `What's new in X?`,
       },
       {
-        key: "1-2",
+        key: '1-2',
         description: `What's AGI?`,
       },
       {
-        key: "1-3",
+        key: '1-3',
         description: `Where is the doc?`,
       },
     ],
   },
   {
-    key: "2",
+    key: '2',
     label: renderTitle(
       <ReadOutlined
         style={{
-          color: "#1890FF",
+          color: '#1890FF',
         }}
       />,
-      "Design Guide"
+      'Design Guide'
     ),
-    description: "How to design a good product?",
+    description: 'How to design a good product?',
     children: [
       {
-        key: "2-1",
+        key: '2-1',
         icon: <HeartOutlined />,
         description: `Know the well`,
       },
       {
-        key: "2-2",
+        key: '2-2',
         icon: <SmileOutlined />,
         description: `Set the AI role`,
       },
       {
-        key: "2-3",
+        key: '2-3',
         icon: <CommentOutlined />,
         description: `Express the feeling`,
       },
     ],
   },
-];
+]
 const senderPromptsItems = [
   {
-    key: "1",
-    description: "Hot Topics",
+    key: '1',
+    description: 'Hot Topics',
     icon: (
       <FireOutlined
         style={{
-          color: "#FF4D4F",
+          color: '#FF4D4F',
         }}
       />
     ),
   },
   {
-    key: "2",
-    description: "Design Guide",
+    key: '2',
+    description: 'Design Guide',
     icon: (
       <ReadOutlined
         style={{
-          color: "#1890FF",
+          color: '#1890FF',
         }}
       />
     ),
   },
-];
+]
 const roles = {
   ai: {
-    placement: "start",
+    placement: 'start',
     // typing: {
     //   step: 5,
     //   interval: 20,
@@ -233,8 +233,8 @@ const roles = {
     },
   },
   local: {
-    placement: "end",
-    variant: "shadow",
+    placement: 'end',
+    variant: 'shadow',
     // messageRender: renderMarkdown,
     avatar: {
       icon: <UserOutlined />,
@@ -248,44 +248,40 @@ const roles = {
       },
     },
   },
-};
+}
 
 const BASE_URL = 'http://10.93.64.196:11434/v1/completions'
-const MODEL = 'deepseek-r1:1.5b';
+const MODEL = 'deepseek-r1:1.5b'
 // 計算時間戳
-const timestamp = () => new Date().getTime();
+const timestamp = () => new Date().getTime()
 const Independent = () => {
-  const [messages, setMessages] = React.useState([]);
-  const [status, setStatus] = React.useState();
+  const [messages, setMessages] = React.useState([])
+  const [status, setStatus] = React.useState()
   // ==================== Style ====================
-  const { styles } = useStyle();
+  const { styles } = useStyle()
 
   // ==================== State ====================
-  const [headerOpen, setHeaderOpen] = React.useState(false);
-  const [content, setContent] = React.useState("");
-  const [conversationsItems, setConversationsItems] = React.useState(
-    defaultConversationsItems
-  );
-  const [activeKey, setActiveKey] = React.useState(
-    defaultConversationsItems[0].key
-  );
-  const [attachedFiles, setAttachedFiles] = React.useState([]);
+  const [headerOpen, setHeaderOpen] = React.useState(false)
+  const [content, setContent] = React.useState('')
+  const [conversationsItems, setConversationsItems] = React.useState(defaultConversationsItems)
+  const [activeKey, setActiveKey] = React.useState(defaultConversationsItems[0].key)
+  const [attachedFiles, setAttachedFiles] = React.useState([])
 
   // ==================== Runtime ====================
   const [agent] = useXAgent({
     baseURL: BASE_URL,
-    model: MODEL
-  });
+    model: MODEL,
+  })
   useEffect(() => {
     if (activeKey !== undefined) {
       // setMessages([]);
     }
-  }, [activeKey]);
+  }, [activeKey])
 
   // ==================== Event ====================
-  const onSubmit = async (nextContent) => {
-    if (!nextContent) return;
-    setContent("");
+  const onSubmit = async nextContent => {
+    if (!nextContent) return
+    setContent('')
     const params = {
       prompt: nextContent,
       max_tokens: -1, // Adjust as needed
@@ -298,36 +294,37 @@ const Independent = () => {
     const aiResponse = {
       id: `${timestamp()}`,
       message: '',
-      status: 'ai'
+      status: 'ai',
     }
     const currentMessages = [...messages]
     await agent.request(params, {
-      onUpdate: (res) => {
+      onUpdate: res => {
         let data = res.data
         if (!(res.data.indexOf('[DONE]') > -1)) {
           data = JSON.parse(data)
           const text = data.choices[0].text
           if (['<think>', '</think>'].includes(text)) return
           aiResponse.message += text
-          setMessages([...currentMessages, {
-            id: `${timestamp()}`,
-            message: nextContent,
-            status: "local"
-          }
-            , aiResponse])
+          setMessages([
+            ...currentMessages,
+            {
+              id: `${timestamp()}`,
+              message: nextContent,
+              status: 'local',
+            },
+            aiResponse,
+          ])
         }
       },
-      onError: (error) => {
-      },
-      onSuccess: (res) => {
+      onError: error => {},
+      onSuccess: res => {
         return true
-      }
-
+      },
     })
-  };
-  const onPromptsItemClick = (info) => {
+  }
+  const onPromptsItemClick = info => {
     // onRequest(info.data.description);
-  };
+  }
   const onAddConversation = () => {
     setConversationsItems([
       ...conversationsItems,
@@ -335,13 +332,13 @@ const Independent = () => {
         key: `${conversationsItems.length}`,
         label: `New Conversation ${conversationsItems.length}`,
       },
-    ]);
-    setActiveKey(`${conversationsItems.length}`);
-  };
-  const onConversationClick = (key) => {
-    setActiveKey(key);
-  };
-  const handleFileChange = (info) => setAttachedFiles(info.fileList);
+    ])
+    setActiveKey(`${conversationsItems.length}`)
+  }
+  const onConversationClick = key => {
+    setActiveKey(key)
+  }
+  const handleFileChange = info => setAttachedFiles(info.fileList)
 
   // ==================== Nodes ====================
   const placeholderNode = (
@@ -363,7 +360,7 @@ const Independent = () => {
         items={placeholderPromptsItems}
         styles={{
           list: {
-            width: "100%",
+            width: '100%',
           },
           item: {
             flex: 1,
@@ -372,22 +369,18 @@ const Independent = () => {
         onItemClick={onPromptsItemClick}
       />
     </Space>
-  );
+  )
   const items = messages.map(({ id, message, status }) => ({
     key: id,
-    loading: status === "loading",
-    role: status === "local" ? "local" : "ai",
+    loading: status === 'loading',
+    role: status === 'local' ? 'local' : 'ai',
     content: message,
-  }));
+  }))
   const attachmentsNode = (
     <Badge dot={attachedFiles.length > 0 && !headerOpen}>
-      <Button
-        type="text"
-        icon={<PaperClipOutlined />}
-        onClick={() => setHeaderOpen(!headerOpen)}
-      />
+      <Button type="text" icon={<PaperClipOutlined />} onClick={() => setHeaderOpen(!headerOpen)} />
     </Badge>
-  );
+  )
   const senderHeader = (
     <Sender.Header
       title="Attachments"
@@ -403,20 +396,20 @@ const Independent = () => {
         beforeUpload={() => false}
         items={attachedFiles}
         onChange={handleFileChange}
-        placeholder={(type) =>
-          type === "drop"
+        placeholder={type =>
+          type === 'drop'
             ? {
-              title: "Drop file here",
-            }
+                title: 'Drop file here',
+              }
             : {
-              icon: <CloudUploadOutlined />,
-              title: "Upload files",
-              description: "Click or drag files to this area to upload",
-            }
+                icon: <CloudUploadOutlined />,
+                title: 'Upload files',
+                description: 'Click or drag files to this area to upload',
+              }
         }
       />
     </Sender.Header>
-  );
+  )
   const logoNode = (
     <div className={styles.logo}>
       <img
@@ -426,7 +419,7 @@ const Independent = () => {
       />
       <span>Ant Design X</span>
     </div>
-  );
+  )
 
   // ==================== Render =================
   return (
@@ -458,18 +451,16 @@ const Independent = () => {
             items.length > 0
               ? items
               : [
-                {
-                  content: placeholderNode,
-                  variant: "borderless",
-                },
-              ]
+                  {
+                    content: placeholderNode,
+                    variant: 'borderless',
+                  },
+                ]
           }
           roles={roles}
           className={styles.messages}
           messageRender={renderMarkdown}
-        >
-
-        </Bubble.List>
+        ></Bubble.List>
         {/* 🌟 提示词 */}
         <Prompts items={senderPromptsItems} onItemClick={onPromptsItemClick} />
         {/* 🌟 输入框 */}
@@ -484,6 +475,6 @@ const Independent = () => {
         />
       </div>
     </div>
-  );
-};
-export default Independent;
+  )
+}
+export default Independent
