@@ -1,70 +1,169 @@
-# Getting Started with Create React App
+# Ant Design X AI Chat Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[English](#english) | [中文](#中文)
 
-## Available Scripts
+## English
 
-In the project directory, you can run:
+A modern AI chat application built with Ant Design X, featuring conversational interfaces with support for markdown rendering, attachments, and interactive prompts.
 
-### `npm start`
+### Features
 
-Runs the app in the development mode.\
+- 💬 **AI Chat Interface**: Built with [@ant-design/x](https://github.com/ant-design/x) components
+- 🎨 **Modern UI**: Styled using `antd-style` for dynamic theming
+- 📝 **Markdown Support**: Rich text rendering with `markdown-it`
+- 📎 **Attachments**: Support for file attachments in conversations
+- 🎯 **Interactive Prompts**: Quick access to common prompts and topics
+- 🔄 **Conversation Management**: Organize and manage multiple chat conversations
+
+### Tech Stack
+
+- **React 19.0.0**: Latest React with modern features
+- **Ant Design X 1.0.5**: Specialized AI chat components
+- **antd-style**: Dynamic styling solution
+- **markdown-it**: Markdown parsing and rendering
+- **Create React App**: Build toolchain
+
+### Getting Started
+
+#### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm or yarn
+
+#### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/YI01-ZHOU/ant-design-x-ai.git
+
+# Navigate to project directory
+cd ant-design-x-ai
+
+# Install dependencies
+npm install
+```
+
+#### Available Scripts
+
+##### `npm start`
+
+Runs the app in development mode.  
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The page will reload when you make changes.
 
-### `npm test`
+##### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in interactive watch mode.
 
-### `npm run build`
+##### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder.  
+The build is optimized for best performance with minified code and hashed filenames.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##### `npm run format`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Formats the code using Prettier to maintain consistent code style.
 
-### `npm run eject`
+### Project Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+ant-design-x-ai/
+├── public/          # Static files
+├── src/
+│   ├── App.js       # Main application component
+│   ├── Independent.js   # AI chat interface component
+│   └── ...
+├── package.json     # Dependencies and scripts
+└── README.md        # This file
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Learn More
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [Ant Design X Documentation](https://x.ant.design/)
+- [React Documentation](https://react.dev/)
+- [Create React App Documentation](https://create-react-app.dev/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 中文
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+一个使用 Ant Design X 构建的现代化 AI 聊天应用，支持对话界面、Markdown 渲染、附件上传和交互式提示。
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 特性
 
-### Code Splitting
+- 💬 **AI 聊天界面**：使用 [@ant-design/x](https://github.com/ant-design/x) 组件构建
+- 🎨 **现代化 UI**：使用 `antd-style` 实现动态主题
+- 📝 **Markdown 支持**：使用 `markdown-it` 实现富文本渲染
+- 📎 **附件支持**：支持在对话中添加文件附件
+- 🎯 **交互式提示**：快速访问常用提示和话题
+- 🔄 **对话管理**：组织和管理多个聊天对话
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 技术栈
 
-### Analyzing the Bundle Size
+- **React 19.0.0**：最新的 React 及其现代特性
+- **Ant Design X 1.0.5**：专业的 AI 聊天组件
+- **antd-style**：动态样式解决方案
+- **markdown-it**：Markdown 解析和渲染
+- **Create React App**：构建工具链
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 快速开始
 
-### Making a Progressive Web App
+#### 前置要求
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Node.js（版本 14 或更高）
+- npm 或 yarn
 
-### Advanced Configuration
+#### 安装步骤
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+# 克隆仓库
+git clone https://github.com/YI01-ZHOU/ant-design-x-ai.git
 
-### Deployment
+# 进入项目目录
+cd ant-design-x-ai
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# 安装依赖
+npm install
+```
 
-### `npm run build` fails to minify
+#### 可用命令
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+##### `npm start`
+
+在开发模式下运行应用。  
+打开 [http://localhost:3000](http://localhost:3000) 在浏览器中查看。
+
+当你修改代码时，页面会自动重新加载。
+
+##### `npm test`
+
+以交互式监视模式启动测试运行器。
+
+##### `npm run build`
+
+将应用构建到 `build` 文件夹以用于生产环境。  
+构建经过优化，代码被压缩且文件名包含哈希值。
+
+##### `npm run format`
+
+使用 Prettier 格式化代码以保持一致的代码风格。
+
+### 项目结构
+
+```
+ant-design-x-ai/
+├── public/          # 静态文件
+├── src/
+│   ├── App.js       # 主应用组件
+│   ├── Independent.js   # AI 聊天界面组件
+│   └── ...
+├── package.json     # 依赖和脚本
+└── README.md        # 本文件
+```
+
+### 了解更多
+
+- [Ant Design X 文档](https://x.ant.design/)
+- [React 文档](https://react.dev/)
+- [Create React App 文档](https://create-react-app.dev/)
