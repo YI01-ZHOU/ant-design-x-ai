@@ -27,7 +27,7 @@ A modern AI chat application built with Ant Design X, featuring conversational i
 
 #### Prerequisites
 
-- Node.js (version 14 or higher)
+- Node.js (version 18 or higher)
 - npm or yarn
 
 #### Installation
@@ -111,7 +111,7 @@ ant-design-x-ai/
 
 #### 前置要求
 
-- Node.js（版本 14 或更高）
+- Node.js（版本 18 或更高）
 - npm 或 yarn
 
 #### 安装步骤
